@@ -1,5 +1,6 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:width="http://www.w3.org/1999/xhtml">
 
 <head th:replace="fragments/common :: head('게시판')">
     <!-- Required meta tags -->
@@ -31,13 +32,44 @@
             </div>
             <br>
 
-            <label></label>
+            <label>카테고리</label>
             <div>
-                <select id="browsers" name="list">
+                <select id="category" name="list">
                     <optgroup label="제품유형">
-                    <option value="전자제품">전자제품</option>
-                    <option value="가전제품">가전제품</option>
-                    <option value="운동권">운동권</option>
+                    <option value="디지털기기">디지털기기</option>
+                    <option value="생활가전">생활가전</option>
+                    <option value="가구/인테리어">가구/인테리어</option>
+                        <option value="유아동">유아동</option>
+                        <option value="생활/가공식품">생활/가공식품</option>
+                        <option value="유아도서">유아도서</option>
+                        <option value="스포츠/레저">스포츠/레저</option>
+                        <option value="여성잡화">여성잡화</option>
+                        <option value="여성의류">여성의류</option>
+                        <option value="남성패션/잡화">남성패션/잡화</option>
+                        <option value="게임/취미">게임/취미</option>
+                        <option value="뷰티/미용">뷰티/미용</option>
+                        <option value="반려동물용품">반려동물용품</option>
+                        <option value="도서/티켓/음반">도서/티켓/음반</option>
+                        <option value="회원권">회원권</option>
+                        <option value="식물">식물</option>
+                        <option value="기타">기타</option>
+                    </optgroup>
+                </select>
+            </div>
+            <br>
+            <label>카드사</label>
+            <div>
+                <select id="card" name="list">
+                    <optgroup label="카드사">
+                        <option value="신한카드">신한카드</option>
+                        <option value="국민카드">국민카드</option>
+                        <option value="우리카드">우리카드</option>
+                        <option value="하나카드">하나카드</option>
+                        <option value="롯데카드">롯데카드</option>
+                        <option value="BC카드">BC카드</option>
+                        <option value="NH농협카드">NH농협카드</option>
+                        <option value="삼성카드">삼성카드</option>
+                        <option value="현대카드">현대카드</option>
                     </optgroup>
                 </select>
             </div>
@@ -45,12 +77,51 @@
         <div class="form-group">
             <label for="content">내용</label>
             <textarea class="form-control" id="content" rows="3" th:field="*{content}"
-                      th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
+                       th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
+        </div>
+        <label>구매가 :</label><input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
+                                   th:classappend="${#fields.hasErrors('buy')} ? 'is-invalid'" id="buy" th:field="*{buy}">
+
+        <div class="form-group" style="border: 0px solid black; float: left; width: 50%;">
+            <tr>
+                <td>판매가 :</td>
+                <td>
+            <input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
+                   th:classappend="${#fields.hasErrors('sell')} ? 'is-invalid'" id="sell" th:field="*{sell}">
+                </td>
+            </tr>
+        </div>
+
+
+        <div class="inputArea">
+            <label for="gdsImg">이미지</label>
+            <input type="file" id="gdsImg" name="file" />
+            <div class="select_img">
+                <img src="${goods.gdsImg}" />
+                <input type="hidden" name="gdsImg" value="${goods.gdsImg}" />
+                <input type="hidden" name="gdsThumbImg" value="${goods.gdsThumbImg}" />
+            </div>
+            <script>
+  $("#gdsImg").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(500);
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
         </div>
             <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
                 제목 에러 메시지
             </div>
-
+        <!--<form method="post" enctype="multipart/form-data">
+            <div class="button">
+                <label for="chooseFile">사진 첨부</label>
+            </div>
+            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+        </form> -->
         <div class="text-right">
             <a class="btn btn-primary" th:href="@{/board/list}">취소</a>
             <button type="button" class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>
