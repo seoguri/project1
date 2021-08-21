@@ -2,6 +2,7 @@ package com.example.myhome.controller;
 
 import com.example.myhome.model.Board;
 import com.example.myhome.repository.BoardRepository;
+
 import com.example.myhome.service.BoardService;
 import com.example.myhome.validator.BoardValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,8 @@ public class BoardController {
 
     @Autowired
     private BoardValidator boardValidator;
+
+
 
     @GetMapping("/list")
     public String list(Model model, @PageableDefault(size = 5) Pageable pageable,
@@ -78,8 +81,6 @@ public class BoardController {
         }
         return "board/form";
     }
-
-
 
 
 }

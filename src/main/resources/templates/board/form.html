@@ -33,6 +33,7 @@
                       th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
         </div>
 
+
      <div class="text-right">
          <a class="btn btn-primary" th:href="@{/board/list}">뒤로</a>
          <button type="button" class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>

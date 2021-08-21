@@ -19,6 +19,9 @@ public class Board {
     @Size(min=2, max=30, message = "제목은 2자이상 30자 이하입니다.")
     private String title;
     private String content;
+    private Long buy;
+    private Long sell;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
