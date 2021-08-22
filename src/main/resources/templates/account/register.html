@@ -17,8 +17,7 @@
 </head>
 <body class="text-center">
 <form class="form-signin" th:action="@{/account/register}" method="post" >
-    <a th:href="@{/}"><img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"></a>
-    <h1 class="h3 mb-3 font-weight-normal">회원가입</h1>
+    <a th:href="@{/}"><img class="mb-4" src="https://i.esdrop.com/d/95bbrl2w8j6y/Xwe7dOdppR.png" alt="" width="150" height="150"></a>
 
     <textarea name="saying" row="150" cols="40"  readonly>귀사의 할부 양도 거래 플랫폼 할로는 “모바일 어플리케이션 및 웹 사이트”(이하 “본건 서비스”) 이용과 관련하여 귀사가 본인의 개인(신용)정보를 수집∙이용하는 경우에는 「개인정보 보호법」, 「신용정보의 이용 및 보호에 관한 법률」 및 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에 따라 본인의 동의가 필요합니다. 이에 귀사가 다음과 같이 본인의 개인(신용)정보를 수집∙이용하는 것에 동의합니다.
 
@@ -50,15 +49,23 @@
     <label for="inputPassword" class="sr-only">비밀번호</label>
     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="비밀번호" required>
 
+    <label for="phone" class="sr-only">이름</label>
+    <input type="text" id="phone"  name="phone" class="form-control" placeholder="이름" required>
+
     <label for="phone" class="sr-only">전화번호</label>
     <input type="text" id="phone"  name="phone" class="form-control" placeholder="전화번호" required>
 
+    <label for="phone" class="sr-only">이메일</label>
+    <input type="text" id="phone"  name="phone" class="form-control" placeholder="이메일" required>
+
+
+    <br>
     <!-- <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div> -->
-    <button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" >회원가입</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
 </form>
 
