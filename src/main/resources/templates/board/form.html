@@ -24,22 +24,46 @@
         <input type="hidden" th:field="*{id}">
         <div class="form-group">
             <label for="title">제목</label>
-            <p type="text" class="form-control"
-                   th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="title" th:text="*{title}"></p>
+            <p type="text" class="form-control"  style="width:200px;height:30px;font-size:15px;"
+                   th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="title" th:text="*{title}">
+            </p>
         </div>
+        <div class="form-group" style="border: 0px solid black; float: left; width: 25%;">
+            <label for="title">카테고리</label>
+            <p type="text" class="form-control"  style="width:200px;height:30px;font-size:15px;"
+               th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="options" th:text="*{option}">
+            </p>
+        </div>
+        <div class="form-group" style="border: 0px solid black; float: left; width: 75%;">
+            <label for="title">카드사</label>
+            <p type="text" class="form-control"  style="width:200px;height:30px;font-size:15px;"
+               th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="card" th:text="*{card}">
+            </p>
+        </div>
+        <br>
         <div class="form-group">
             <label for="content">내용</label>
             <textarea readonly = "readonly" class="form-control" id="content" rows="3" th:field="*{content}"
                       th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
         </div>
 
+        <div class="form-group"  style="border: 0px solid black; float: left; width: 25%;">
+            <label>구매가 :</label>
+            <p type="text" class="form-control" style="width:200px;height:30px;font-size:15px;"
+               th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="buy" th:text="*{buy}">
+            </p>
+        </div>
+        <div class="form-group" style="border: 0px solid black; float: left; width: 25%;">
+            <label for="title">판매가 :</label>
+            <p type="text" class="form-control" style="width:200px;height:30px;font-size:15px;"
+               th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="sell" th:text="*{sell}">
+            </p>
+        </div>
 
-     <div class="text-right">
-         <a class="btn btn-primary" th:href="@{/board/list}">뒤로</a>
-         <button type="button" class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>
-
-     </div>
-
+        <div class="text-right">
+            <a class="btn btn-primary" th:href="@{/board/list}">뒤로</a>
+            <button type="button" class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>
+        </div>
  </form>
 
 </div>

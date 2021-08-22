@@ -21,7 +21,8 @@ public class Board {
     private String content;
     private Long buy;
     private Long sell;
-
+    private String option;
+    private String card;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
