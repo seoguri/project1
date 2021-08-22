@@ -51,7 +51,11 @@
         <tr>
             <th scope="col">번호</th>
             <th scope="col">제목</th>
+<<<<<<< HEAD
 
+=======
+            <th scope="col">제품유형</th>
+>>>>>>> github/master
             <th scope="col">작성자</th>
         </tr>
         </thead>
@@ -59,7 +63,11 @@
         <tr th:each="board : ${boards}">
             <td th:text="${board.id}">Mark</td>
             <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">Otto</a></td>
+<<<<<<< HEAD
 
+=======
+            <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">Otto</a></td>
+>>>>>>> github/master
             <td th:text="${board.user.username}"></td>
         </tr>
         </tbody>

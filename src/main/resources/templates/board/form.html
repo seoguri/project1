@@ -47,6 +47,7 @@
                       th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
         </div>
 
+<<<<<<< HEAD
         <div class="form-group"  style="border: 0px solid black; float: left; width: 25%;">
             <label>구매가 :</label>
             <p type="text" class="form-control" style="width:200px;height:30px;font-size:15px;"
@@ -59,6 +60,14 @@
                th:classappend="${#fields.hasErrors('title')} ? 'is-invalid'" id="sell" th:text="*{sell}">
             </p>
         </div>
+=======
+
+     <div class="text-right">
+         <a class="btn btn-primary" th:href="@{/board/list}">뒤로</a>
+         <button type="button" class="btn btn-primary" sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>
+
+     </div>
+>>>>>>> github/master
 
         <div class="text-right">
             <a class="btn btn-primary" th:href="@{/board/list}">뒤로</a>
