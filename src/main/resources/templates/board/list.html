@@ -35,7 +35,40 @@
 </nav>
 
 <div class="container">
-    <br><br><br>
+    <br><br>
+    <h2>인기 상품</h2>
+    <br>
+    <div class="row row-cols-1 row-cols-md-3">
+        <div class="col mb-4">
+            <div class="card h-80">
+                <img src="https://cdn.pixabay.com/photo/2015/11/19/11/45/macbook-pro-1050973_1280.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">맥북 싸게 양도합니다.</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-80">
+                <img src="https://cdn.pixabay.com/photo/2020/04/10/01/17/airpods-5023660_1280.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">에어팟 프로</h5>
+                    <p class="card-text">This is a short card.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col mb-4">
+            <div class="card h-80">
+                <img src="https://cdn.pixabay.com/photo/2020/09/02/03/26/iphone-5537230_1280.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">아이폰12 양도</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
     <h2>게시판</h2>
     <div>총 건수 : <span th:text="${boards.totalElements}"></span></div>
     <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/list}">
