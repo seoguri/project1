@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 
-=======
 <!doctype html>
->>>>>>> github/master
+
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:width="http://www.w3.org/1999/xhtml">
 
@@ -39,26 +37,6 @@
 
             <label>카테고리</label>
             <div>
-<<<<<<< HEAD
-                <select id="category" th:field="*{option}" th:value="*{option}" >
-                    <optgroup label="제품유형">
-                    <option th:value="디지털기기">디지털기기</option>
-                    <option th:value="생활가전">생활가전</option>
-                    <option th:value="유아동">유아동</option>
-                        <option th:value="생활가공식품">생활/가공식품</option>
-                        <option th:value="유아도서">유아도서</option>
-                        <option th:value="스포츠레저">스포츠/레저</option>
-                        <option th:value="여성잡화">여성잡화</option>
-                        <option th:value="여성의류">여성의류</option>
-                        <option th:value="남성패션잡화">남성패션/잡화</option>
-                        <option th:value="게임취미">게임/취미</option>
-                        <option th:value="뷰티미용">뷰티/미용</option>
-                        <option th:value="반려동물용품">반려동물용품</option>
-                        <option th:value="도서티켓음반">도서/티켓/음반</option>
-                        <option th:value="회원권">회원권</option>
-                        <option th:value="식물">식물</option>
-                        <option th:value="기타">기타</option>
-=======
                 <select id="category" name="list">
                     <optgroup label="제품유형">
                     <option value="디지털기기">디지털기기</option>
@@ -95,68 +73,30 @@
                         <option value="NH농협카드">NH농협카드</option>
                         <option value="삼성카드">삼성카드</option>
                         <option value="현대카드">현대카드</option>
->>>>>>> github/master
+
                     </optgroup>
                 </select>
 
             </div>
             <br>
-            <label>카드사</label>
-            <div>
-                <select id="cat" th:field="*{card}" th:value="*{card}">
-                    <optgroup label="카드사">
-                        <option th:value="신한카드">신한카드</option>
-                        <option th:value="국민카드">국민카드</option>
-                        <option th:value="우리카드">우리카드</option>
-                        <option th:value="하나카드">하나카드</option>
-                        <option th:value="롯데카드">롯데카드</option>
-                        <option th:value="BC카드">BC카드</option>
-                        <option th:value="NH농협카드">NH농협카드</option>
-                        <option th:value="삼성카드">삼성카드</option>
-                        <option th:value="현대카드">현대카드</option>
-                    </optgroup>
-                </select>
-            </div>
 
         <div class="form-group">
             <label for="content">내용</label>
             <textarea class="form-control" id="content" rows="3" th:field="*{content}"
                        th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
         </div>
-<<<<<<< HEAD
-        <div class="form-group"  style="border: 0px solid black; float: left; width: 50%;">
-        <label>구매가 :</label>
-            <input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
-                                   th:classappend="${#fields.hasErrors('buy')} ? 'is-invalid'" id="buy" th:field="*{buy}">
-        </div>
+<
+
         <div class="form-group" style="border: 0px solid black; float: left; width: 50%;">
             <label>판매가 :</label>
             <input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
                    th:classappend="${#fields.hasErrors('sell')} ? 'is-invalid'" id="sell" th:field="*{sell}">
 
-=======
-        <label>구매가 :</label><input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
+            <label>구매가 :</label><input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
                                    th:classappend="${#fields.hasErrors('buy')} ? 'is-invalid'" id="buy" th:field="*{buy}">
-
-        <div class="form-group" style="border: 0px solid black; float: left; width: 50%;">
-            <tr>
-                <td>판매가 :</td>
-                <td>
-            <input type="text" class="form-control" style="width:200px;height:30px;font-size:10px;"
-                   th:classappend="${#fields.hasErrors('sell')} ? 'is-invalid'" id="sell" th:field="*{sell}">
-                </td>
-            </tr>
         </div>
 
 
-        <div class="inputArea">
-            <label for="gdsImg">이미지</label>
-            <input type="file" id="gdsImg" name="file" />
-            <div class="select_img">
-                <img src="${goods.gdsImg}" />
-                <input type="hidden" name="gdsImg" value="${goods.gdsImg}" />
-                <input type="hidden" name="gdsThumbImg" value="${goods.gdsThumbImg}" />
-            </div>
             <script>
   $("#gdsImg").change(function(){
    if(this.files && this.files[0]) {
@@ -168,8 +108,7 @@
    }
   });
  </script>
->>>>>>> github/master
-        </div>
+
             <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">
                 제목 에러 메시지
             </div>
@@ -183,26 +122,8 @@
             <a class="btn btn-primary" th:href="@{/board/list}">취소</a>
             <button type="submit" class="btn btn-primary">확인</button>
         </div>
+
     </form>
 </div>
-    </body>
-
-
-<footer th:replace="fragments/common :: footer"></footer>
-<script>
-        function deleteBoard(id) {
-            //DELETE /api/boards/{id}
-            $.ajax({
-                url: '/api/boards/' + id,
-                type: 'DELETE',
-                success: function(result) {
-                    console.log('result', result);
-                    alert('삭제됐습니다.');
-                    window.location.href = '/board/list';
-                }
-            });
-        }
-    </script>
-
-
+</body>
 </html>
